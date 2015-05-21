@@ -10,7 +10,6 @@
 ;;
 ;;; License: GPLv3
 
-
 (defvar liquid-types-packages
   '(
     flycheck
@@ -23,6 +22,9 @@
     )
   "List of all packages to install and/or initialize. Built-in packages
 which require an initialization must be listed explicitly in the list.")
+
+(defun liquid-types/init-button-lock ())
+
 
 (defvar liquid-types-excluded-packages '()
   "List of packages to exclude.")
