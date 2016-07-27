@@ -39,7 +39,7 @@
 
 (defgroup liquid-tip nil
   " Liquid tip."
-  :group 'haskell
+  :group 'intero
   :prefix "liquid-tip-")
 
 (defcustom liquid-tip-style 'ascii
@@ -345,11 +345,11 @@
           (lambda () (liquid-tip-update liquid-tip-checker-name)))
 
 ;;;###autoload
-(add-hook 'haskell-mode-hook
-          '(lambda () (flycheck-select-checker 'haskell-liquid)))
-;;;###autoload
-(add-hook 'literate-haskell-mode-hook
-          '(lambda () (flycheck-select-checker 'haskell-liquid)))
+(add-hook 'intero-mode-hook
+          '(lambda () (flycheck-select-checker 'intero-liquid)))
+;;###autoload
+;; (add-hook 'literate-haskell-mode-hook
+;;           '(lambda () (flycheck-select-checker 'haskell-liquid)))
 
 ;;;###autoload
 (define-minor-mode liquid-tip-mode

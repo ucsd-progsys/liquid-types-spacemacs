@@ -13,10 +13,10 @@
 (defvar liquid-types-packages
   '(
     flycheck
-    haskell-mode
+    ;; haskell-mode
     button-lock
     pos-tip
-    popup 
+    popup
     thingatpt
     ;; package liquid-typess go here
     )
