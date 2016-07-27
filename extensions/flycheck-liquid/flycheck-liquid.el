@@ -36,12 +36,12 @@
 
 (require 'flycheck)
 
-(flycheck-define-checker haskell-liquid
+(flycheck-define-checker intero-liquid
   "A Haskell refinement type checker using liquidhaskell.
 
 See URL `https://github.com/ucsd-progsys/liquidhaskell'."
   :command
-  ("liquid" source-inplace)
+  ("stack exec liquid -- " source-inplace)
   ;; ("~/bin/Checker.hs" source-inplace)
   :error-patterns
   (
@@ -74,10 +74,10 @@ See URL `https://github.com/ucsd-progsys/liquidhaskell'."
     (-> errors
       flycheck-dedent-error-messages
       flycheck-sanitize-errors))
-  :modes (haskell-mode literate-haskell-mode)
-  :next-checkers ((warnings-only . haskell-hlint)))
+  :modes (intero-mode)
+  :next-checkers nil)
 
-(add-to-list 'flycheck-checkers 'haskell-liquid)
+(add-to-list 'flycheck-checkers 'intero-liquid)
 
 (provide 'flycheck-liquid)
 ;;; flycheck-liquid.el ends here

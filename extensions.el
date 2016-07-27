@@ -28,10 +28,10 @@
   "Initialize my extension"
   (progn
     (require 'flycheck-liquid)
-    (add-hook 'haskell-mode-hook
-              '(lambda () (flycheck-select-checker 'haskell-liquid)))
-    (add-hook 'literate-haskell-mode-hook
-              '(lambda () (flycheck-select-checker 'haskell-liquid)))
+    (add-hook 'intero-mode-hook
+              '(lambda () (flycheck-select-checker 'intero-liquid)))
+    ;; (add-hook 'literate-haskell-mode-hook
+    ;;           '(lambda () (flycheck-select-checker 'haskell-liquid)))
   )
 )
 
@@ -40,7 +40,7 @@
   (progn
     (require 'flycheck-liquid)
     (require 'liquid-tip)
-    (add-hook 'haskell-mode-hook
+    (add-hook 'intero-mode-hook
                 '(lambda () (liquid-tip-mode)))
     ;; (add-hook 'haskell-mode-hook
     ;;           (lambda () (liquid-tip-init 'ascii)))
