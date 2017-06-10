@@ -41,39 +41,38 @@
 
 See URL `https://github.com/ucsd-progsys/liquidhaskell'."
   :command
-  ("liquid" source-inplace)
-  ;; ("~/bin/Checker.hs" source-inplace)
+  ("stack" "exec" "liquid" "--" source-inplace)
   :error-patterns
   (
    (error line-start " " (file-name) ":" line ":" column ":"
           (message
-	   (one-or-more " ") (one-or-more not-newline)
-	   (zero-or-more "\n"
-			 (one-or-more " ")
-			 (zero-or-more not-newline)))
+           (one-or-more " ") (one-or-more not-newline)
+           (zero-or-more "\n"
+                         (one-or-more " ")
+                         (zero-or-more not-newline)))
           line-end)
 
    (error line-start " " (file-name) ":" line ":" column "-" (one-or-more digit) ":"
-	  (message
-	   (one-or-more " ") (one-or-more not-newline)
-	   (zero-or-more "\n"
-			 (one-or-more " ")
-			 (zero-or-more not-newline)))
+          (message
+           (one-or-more " ") (one-or-more not-newline)
+           (zero-or-more "\n"
+                         (one-or-more " ")
+                         (zero-or-more not-newline)))
           line-end)
 
    (error line-start " " (file-name) ":(" line "," column ")-(" (one-or-more digit) "," (one-or-more digit) "):"
-	  (message
-	   (one-or-more " ") (one-or-more not-newline)
-	   (zero-or-more "\n"
-			 (one-or-more " ")
-			 (zero-or-more not-newline)))
+          (message
+           (one-or-more " ") (one-or-more not-newline)
+           (zero-or-more "\n"
+                         (one-or-more " ")
+                         (zero-or-more not-newline)))
           line-end)
    )
   :error-filter
   (lambda (errors)
     (-> errors
-      flycheck-dedent-error-messages
-      flycheck-sanitize-errors))
+       flycheck-dedent-error-messages
+       flycheck-sanitize-errors))
   :modes (haskell-mode literate-haskell-mode)
   :next-checkers ((warnings-only . haskell-hlint)))
 
